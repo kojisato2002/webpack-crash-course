@@ -7,6 +7,14 @@ module.exports = {
     filename: "main.js",
     path: outputpath,
   },
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: ["style-loader", "css-loader"],
+      },
+    ],
+  },
   devServer: {
     contentBase: outputpath,
   },
