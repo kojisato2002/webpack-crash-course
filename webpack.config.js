@@ -1,6 +1,7 @@
 const path = require("path");
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const UglifyJSPlugin = require("uglifyjs-webpack-plugin");
+const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 
 const outputpath = path.resolve(__dirname, "dist");
 
@@ -61,6 +62,7 @@ module.exports = {
           },
         },
       }),
+      new OptimizeCssAssetsPlugin({}),
     ],
   },
 };
