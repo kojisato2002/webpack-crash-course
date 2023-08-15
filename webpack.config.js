@@ -10,6 +10,10 @@ module.exports = {
     filename: "main.js",
     path: outputpath,
   },
+  resolve: {
+    // extensions: ['.js', '.jsx', '.css', '.scss'],
+    extensions: [".js", ".jsx", ".json", ".css", ".scss"],
+  },
   module: {
     rules: [
       {
