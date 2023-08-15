@@ -1,5 +1,6 @@
 const path = require("path");
 const HtmlWebPackPlugin = require("html-webpack-plugin");
+const UglifyJSPlugin = require("uglifyjs-webpack-plugin");
 
 const outputpath = path.resolve(__dirname, "dist");
 
@@ -8,6 +9,10 @@ module.exports = {
   output: {
     filename: "main.js",
     path: outputpath,
+  },
+  resolve: {
+    // extensions: ['.js', '.jsx', '.css', '.scss'],
+    extensions: [".js", ".jsx", ".json", ".css", ".scss"],
   },
   module: {
     rules: [
@@ -47,4 +52,15 @@ module.exports = {
       filename: "./index.html",
     }),
   ],
+  optimization: {
+    minimizer: [
+      new UglifyJSPlugin({
+        uglifyOptions: {
+          compress: {
+            drop_console: true,
+          },
+        },
+      }),
+    ],
+  },
 };
